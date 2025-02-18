@@ -3,14 +3,14 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>br.com.pefacil</groupId>
-	<artifactId>pefacil-stock</artifactId>
+	<artifactId>pefacil-user</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
-	<name>pefacil-stock</name>
+	<name>pefacil-user</name>
 
 	<modules>
-		<module>pefacil-stock-domain</module>
-		<module>pefacil-stock-infrastructure</module>
+		<module>pefacil-user-domain</module>
+		<module>pefacil-user-infrastructure</module>
 	</modules>
 
 	<properties>
