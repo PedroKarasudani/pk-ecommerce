@@ -5,26 +5,24 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>br.com.pefacil</groupId>
-        <artifactId>pefacil-stock</artifactId>
+        <artifactId>pefacil-stock-infrastructure</artifactId>
         <version>0.0.1-SNAPSHOT</version>
-        <relativePath>../../pom.xml</relativePath>
+        <relativePath>../pom.xml</relativePath>
     </parent>
 
-    <artifactId>perfacil-stock-web</artifactId>
+    <artifactId>pefacil-stock-web</artifactId>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <spring-boot-starter.version>3.4.2</spring-boot-starter.version>
-        <pefacil-stock-domain.version>0.0.1-SNAPSHOT</pefacil-stock-domain.version>
     </properties>
 
     <dependencies>
         <dependency>
             <groupId>br.com.pefacil</groupId>
             <artifactId>pefacil-stock-domain</artifactId>
-            <version>${pefacil-stock-domain.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>

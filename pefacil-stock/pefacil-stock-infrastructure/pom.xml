@@ -9,16 +9,28 @@
         <version>0.0.1-SNAPSHOT</version>
     </parent>
     <artifactId>pefacil-stock-infrastructure</artifactId>
+    <packaging>pom</packaging>
 
     <modules>
         <module>pefacil-stock-persistence</module>
-        <module>perfacil-stock-web</module>
+        <module>pefacil-stock-web</module>
     </modules>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <pefacil-stock-domain.version>0.0.1-SNAPSHOT</pefacil-stock-domain.version>
     </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>br.com.pefacil</groupId>
+                <artifactId>pefacil-stock-domain</artifactId>
+                <version>${pefacil-stock-domain.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
 </project>
