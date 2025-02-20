@@ -5,9 +5,9 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>br.com.pefacil</groupId>
-        <artifactId>pefacil-stock</artifactId>
+        <artifactId>pefacil-stock-infrastructure</artifactId>
         <version>0.0.1-SNAPSHOT</version>
-        <relativePath>../../pom.xml</relativePath>
+        <relativePath>../pom.xml</relativePath>
     </parent>
 
     <artifactId>pefacil-stock-persistence</artifactId>
@@ -16,13 +16,18 @@
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <spring-boot-starter-data-jpa.version>3.4.2</spring-boot-starter-data-jpa.version>
     </properties>
 
     <dependencies>
         <dependency>
             <groupId>br.com.pefacil</groupId>
             <artifactId>pefacil-stock-domain</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+            <version>${spring-boot-starter-data-jpa.version}</version>
         </dependency>
     </dependencies>
 

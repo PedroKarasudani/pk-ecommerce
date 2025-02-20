@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>br.com.pefacil</groupId>
+        <artifactId>pefacil-order</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+    </parent>
+
+    <artifactId>pefacil-order-infrastructure</artifactId>
+    <packaging>pom</packaging>
+    <modules>
+        <module>pecafil-order-persistence</module>
+        <module>pefacil-order-web</module>
+    </modules>
+
+    <properties>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <pefacil-order-domain.version>0.0.1-SNAPSHOT</pefacil-order-domain.version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>br.com.pefacil</groupId>
+                <artifactId>pefacil-order-domain</artifactId>
+                <version>${pefacil-order-domain.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+</project>
