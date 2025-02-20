@@ -6,11 +6,19 @@ import br.com.pefacil.stock.web.model.StockDTO;
 public class StockConverter {
 
     public Stock toDomain(StockDTO stockDTO) {
-        return new Stock();
+        return Stock.builder()
+                .id(stockDTO.getId())
+                .qty(stockDTO.getQty())
+                .associatedProduct(stockDTO.getAssociatedProduct())
+                .build();
     }
 
     public StockDTO toDTO(Stock stock) {
-        return new StockDTO();
+        return StockDTO.builder()
+                .id(stock.getId())
+                .qty(stock.getQty())
+                .associatedProduct(stock.getAssociatedProduct())
+                .build();
     }
 
 }
