@@ -2,7 +2,9 @@ package br.com.pefacil.product.persistence;
 
 import br.com.pefacil.product.domain.model.Product;
 import br.com.pefacil.product.domain.port.spi.ProductPort;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public class ProductRepository implements ProductPort {
 
     @Override
