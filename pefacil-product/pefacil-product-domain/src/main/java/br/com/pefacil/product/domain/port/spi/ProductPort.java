@@ -8,7 +8,7 @@ public interface ProductPort {
 
     Product findById(Integer id);
 
-    Product update(Product product);
+    Product update(Product product, Integer id);
 
     void deleteById(Integer id);
 }

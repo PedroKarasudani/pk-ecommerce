@@ -32,15 +32,16 @@ public class ProductFacade {
     }
 
     public ProductDTO findById(Integer id) {
-        return null;
+        return this.converter.toDTO(this.findProduct.findById(id));
     }
 
     public ProductDTO update(Integer id, ProductDTO productDTO) {
-        return null;
+        var product = converter.toDomain(productDTO);
+        return this.converter.toDTO(this.updateProduct.update(product, id));
     }
 
     public void deleteById(Integer id) {
-
+        this.deleteProduct.deleteById(id);
     }
 
 }

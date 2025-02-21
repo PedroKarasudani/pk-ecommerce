@@ -16,7 +16,7 @@ public class ProductRepository implements ProductPort {
     }
 
     @Override
-    public Product update(Product product) {
+    public Product update(Product product, Integer id) {
         return null;
     }
 
