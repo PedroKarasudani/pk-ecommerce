@@ -11,12 +11,6 @@ public class CreateProductUseCase implements CreateProduct {
 
     @Override
     public Product create(Product product) {
-        try {
-
-        } catch (RuntimeException e) {
-            throw new ProductAlreadyExistsException(e.getMessage());
-        }
-
         return this.port.create(product);
     }
 }
