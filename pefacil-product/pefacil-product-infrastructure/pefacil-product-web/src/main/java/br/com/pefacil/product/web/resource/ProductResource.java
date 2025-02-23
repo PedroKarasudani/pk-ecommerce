@@ -25,7 +25,7 @@ public class ProductResource {
 
     @PutMapping("/{id}")
     ResponseEntity<ProductDTO> update(@PathVariable Integer id, @RequestBody ProductDTO productDTO){
-        return ResponseEntity.ok().body(this.facade.update(id, productDTO));
+        return ResponseEntity.ok().body(this.facade.update(productDTO));
     }
 
     @DeleteMapping("/{id}")

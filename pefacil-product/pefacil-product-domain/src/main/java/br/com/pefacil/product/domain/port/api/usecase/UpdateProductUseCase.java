@@ -9,7 +9,7 @@ public class UpdateProductUseCase implements UpdateProduct {
     private ProductPort port;
 
     @Override
-    public Product update(Product product, Integer id) {
-        return port.update(product, id);
+    public Product update(Product product) {
+        return port.update(product);
     }
 }

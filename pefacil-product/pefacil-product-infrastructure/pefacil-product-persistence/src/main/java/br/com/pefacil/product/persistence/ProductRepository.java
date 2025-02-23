@@ -34,12 +34,12 @@ public class ProductRepository implements ProductPort {
     }
 
     @Override
-    public Product update(Product product, Integer id) {
-        if (id == null || !productMap.containsKey(id.longValue())) {
+    public Product update(Product product) {
+        if (product.getId() == null || !productMap.containsKey(product.getId())) {
             throw new ProductNotFoundException("Product not found");
         }
         ProductEntity productEntity = ProductEntity.fromDomain(product);
-        productMap.put(id.longValue(), productEntity);
+        productMap.put(product.getId(), productEntity);
         return productEntity.toDomain();
     }
 
