@@ -34,7 +34,7 @@ public class ProductRepository implements ProductPort {
     }
 
     @Override
-    public Product update(Product product) {
+    public Product update(Product product, Integer id) {
         if (product.getId() == null || !productMap.containsKey(product.getId())) {
             throw new ProductNotFoundException("Product not found");
         }
