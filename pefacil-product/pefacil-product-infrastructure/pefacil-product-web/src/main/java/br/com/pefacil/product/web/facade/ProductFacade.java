@@ -1,11 +1,14 @@
 package br.com.pefacil.product.web.facade;
 
+import java.util.List;
+
 import br.com.pefacil.product.domain.port.api.CreateProduct;
 import br.com.pefacil.product.domain.port.api.DeleteProduct;
 import br.com.pefacil.product.domain.port.api.FindProduct;
 import br.com.pefacil.product.domain.port.api.UpdateProduct;
 import br.com.pefacil.product.web.converter.ProductConverter;
 import br.com.pefacil.product.web.model.ProductDTO;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -33,6 +36,10 @@ public class ProductFacade {
 
     public ProductDTO findById(Integer id) {
         return this.converter.toDTO(this.findProduct.findById(id));
+    }
+
+    public List<ProductDTO> findAll(){
+        return this.converter.toDTO(this.findProduct.findAll());
     }
 
     public ProductDTO update(ProductDTO productDTO, Integer id) {

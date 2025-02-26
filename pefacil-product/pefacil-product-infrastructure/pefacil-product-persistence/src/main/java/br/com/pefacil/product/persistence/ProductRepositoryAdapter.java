@@ -3,6 +3,10 @@ package br.com.pefacil.product.persistence;
 import br.com.pefacil.product.domain.model.Product;
 import br.com.pefacil.product.domain.port.spi.ProductPort;
 import br.com.pefacil.product.persistence.model.ProductEntity;
+
+import java.util.List;
+import java.util.stream.Collectors;
+
 import org.springframework.stereotype.Component;
 
 @Component
@@ -27,6 +31,11 @@ public class ProductRepositoryAdapter implements ProductPort {
     }
 
     @Override
+    public List<Product> findAll() {
+        return productRepository.findAll().stream().map(x -> x.toDomain()).collect(Collectors.toList());
+    }
+
+    @Override
     public Product update(Product newProduct, Integer id) {
         ProductEntity newProductEntity = productRepository.findById(id.longValue()).get();
         newProductEntity.setName(newProduct.getName());
@@ -41,4 +50,6 @@ public class ProductRepositoryAdapter implements ProductPort {
     public void deleteById(Integer id) {
         productRepository.deleteById(id.longValue());
     }
+
+
 }

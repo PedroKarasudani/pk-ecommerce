@@ -1,7 +1,12 @@
 package br.com.pefacil.product.web.resource;
 
+import java.lang.reflect.Array;
+import java.util.Arrays;
+import java.util.List;
+
 import br.com.pefacil.product.web.facade.ProductFacade;
 import br.com.pefacil.product.web.model.ProductDTO;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -16,6 +21,11 @@ public class ProductResource {
     @PostMapping
     ResponseEntity<ProductDTO> create(@RequestBody ProductDTO productDTO) {
         return ResponseEntity.ok().body(this.facade.create(productDTO));
+    }
+
+    @GetMapping
+    ResponseEntity<List<ProductDTO>> findAll(){
+        return ResponseEntity.ok().body(this.facade.findAll());
     }
 
     @GetMapping("/{id}")
