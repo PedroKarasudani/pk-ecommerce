@@ -14,6 +14,6 @@ public class UpdateProductUseCase implements UpdateProduct {
 
     @Override
     public Product update(Product product, Integer id) {
-        return port.update(product, id);
+        return this.port.update(product, id);
     }
 }
