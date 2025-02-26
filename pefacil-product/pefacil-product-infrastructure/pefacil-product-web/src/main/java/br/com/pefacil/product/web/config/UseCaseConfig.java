@@ -8,6 +8,7 @@ import br.com.pefacil.product.domain.port.api.usecase.CreateProductUseCase;
 import br.com.pefacil.product.domain.port.api.usecase.DeleteProductUseCase;
 import br.com.pefacil.product.domain.port.api.usecase.FindProductUseCase;
 import br.com.pefacil.product.domain.port.api.usecase.UpdateProductUseCase;
+import br.com.pefacil.product.domain.port.spi.ProductPort;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -15,22 +16,22 @@ import org.springframework.context.annotation.Configuration;
 public class UseCaseConfig {
 
     @Bean
-    public CreateProduct createProduct() {
-        return new CreateProductUseCase();
+    public CreateProduct createProduct(ProductPort productPort) {
+        return new CreateProductUseCase(productPort);
     }
 
     @Bean
-    public FindProduct findProduct() {
-        return new FindProductUseCase();
+    public FindProduct findProduct(ProductPort productPort) {
+        return new FindProductUseCase(productPort);
     }
 
     @Bean
-    public UpdateProduct updateProduct() {
-        return new UpdateProductUseCase();
+    public UpdateProduct updateProduct(ProductPort productPort) {
+        return new UpdateProductUseCase(productPort);
     }
 
     @Bean
-    public DeleteProduct deleteProduct() {
-        return new DeleteProductUseCase();
+    public DeleteProduct deleteProduct(ProductPort productPort) {
+        return new DeleteProductUseCase(productPort);
     }
 }

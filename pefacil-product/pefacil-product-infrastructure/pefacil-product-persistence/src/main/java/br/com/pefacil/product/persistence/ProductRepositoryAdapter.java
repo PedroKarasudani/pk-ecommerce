@@ -3,7 +3,9 @@ package br.com.pefacil.product.persistence;
 import br.com.pefacil.product.domain.model.Product;
 import br.com.pefacil.product.domain.port.spi.ProductPort;
 import br.com.pefacil.product.persistence.model.ProductEntity;
+import org.springframework.stereotype.Component;
 
+@Component
 public class ProductRepositoryAdapter implements ProductPort {
 
     private final ProductRepository productRepository;
