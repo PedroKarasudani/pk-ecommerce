@@ -3,6 +3,7 @@ package br.com.pefacil.product.web.resource.exception;
 import br.com.pefacil.product.domain.exceptions.InvalidPriceException;
 import br.com.pefacil.product.domain.exceptions.InvalidStockQuantityException;
 import br.com.pefacil.product.domain.exceptions.ProductAlreadyExistsException;
+import br.com.pefacil.product.domain.exceptions.ProductNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -31,6 +32,11 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(InvalidStockQuantityException.class)
     public ResponseEntity<ErrorResponse> handleInvalidStock(InvalidStockQuantityException e) {
         return buildErrorResponse(e.getMessage(), HttpStatus.BAD_REQUEST);
+    }
+
+    @ExceptionHandler(ProductNotFoundException.class)
+    public ResponseEntity<ErrorResponse> handleProductNotFound(ProductNotFoundException e) {
+        return buildErrorResponse(e.getMessage(), HttpStatus.NOT_FOUND);
     }
 
 }

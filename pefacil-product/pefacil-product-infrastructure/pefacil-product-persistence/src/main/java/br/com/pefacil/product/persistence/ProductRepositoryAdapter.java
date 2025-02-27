@@ -1,6 +1,7 @@
 package br.com.pefacil.product.persistence;
 
 import br.com.pefacil.product.domain.exceptions.ProductAlreadyExistsException;
+import br.com.pefacil.product.domain.exceptions.ProductNotFoundException;
 import br.com.pefacil.product.domain.model.Product;
 import br.com.pefacil.product.domain.port.spi.ProductPort;
 import br.com.pefacil.product.persistence.model.ProductEntity;
@@ -33,7 +34,7 @@ public class ProductRepositoryAdapter implements ProductPort {
 
     @Override
     public Product findById(Integer id) {
-        return productRepository.findById(id.longValue()).get().toDomain();
+        return productRepository.findById(id.longValue()).orElseThrow(() -> new ProductNotFoundException(id.longValue())).toDomain();
     }
 
     @Override
