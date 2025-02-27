@@ -15,6 +15,7 @@ public class CreateProductUseCase implements CreateProduct {
 
     @Override
     public Product create(Product product) {
+        ValidateProduct.validate(product);
         return this.port.create(product);
     }
 }
