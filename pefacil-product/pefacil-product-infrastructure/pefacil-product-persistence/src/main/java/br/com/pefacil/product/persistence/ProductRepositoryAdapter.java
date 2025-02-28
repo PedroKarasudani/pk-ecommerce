@@ -37,11 +37,7 @@ public class ProductRepositoryAdapter implements ProductPort {
 
     @Override
     public Optional<Product> findById(Integer id) {
-        try {
-             return Optional.ofNullable(productRepository.findById(id.longValue()).orElseThrow(() -> new ProductNotFoundException(id.longValue())).toDomain());
-        } catch (DataAccessException e) {
-            throw new DatabaseErrorException(e.getMessage());
-        }
+        return productRepository.findById(id.longValue()).stream().map(ProductEntity::toDomain).findFirst();
     }
 
     @Override
