@@ -1,7 +1,5 @@
 package br.com.pefacil.product.web.resource;
 
-import java.lang.reflect.Array;
-import java.util.Arrays;
 import java.util.List;
 
 import br.com.pefacil.product.web.facade.ProductFacade;
