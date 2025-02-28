@@ -31,6 +31,16 @@ public class ProductEntity {
                 .price(product.getPrice())
                 .build();
     }
+
+    public static ProductEntity fromDomain(Product product, Integer id) {
+        return ProductEntity.builder()
+                .id(id.longValue())
+                .name(product.getName())
+                .description(product.getDescription())
+                .quantityStoke(product.getQuantityStoke())
+                .price(product.getPrice())
+                .build();
+    }
     
     public Product toDomain () {
         return Product.builder()
