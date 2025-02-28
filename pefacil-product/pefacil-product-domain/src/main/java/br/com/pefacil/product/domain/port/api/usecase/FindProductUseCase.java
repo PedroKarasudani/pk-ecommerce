@@ -1,7 +1,9 @@
 package br.com.pefacil.product.domain.port.api.usecase;
 
 import java.util.List;
+import java.util.Optional;
 
+import br.com.pefacil.product.domain.exceptions.ProductNotFoundException;
 import br.com.pefacil.product.domain.model.Product;
 import br.com.pefacil.product.domain.port.api.FindProduct;
 import br.com.pefacil.product.domain.port.spi.ProductPort;
@@ -15,8 +17,8 @@ public class FindProductUseCase implements FindProduct {
     private ProductPort port;
 
     @Override
-    public Product findById(Integer id) {
-        return this.port.findById(id);
+    public Optional<Product> findById(Integer id) {
+        return Optional.of(this.port.findById(id).orElseThrow(() -> new ProductNotFoundException(id.longValue())));
     }
 
     @Override

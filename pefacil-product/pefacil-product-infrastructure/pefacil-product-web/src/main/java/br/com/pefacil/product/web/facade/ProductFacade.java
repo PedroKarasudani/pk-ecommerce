@@ -35,7 +35,7 @@ public class ProductFacade {
     }
 
     public ProductDTO findById(Integer id) {
-        return this.converter.toDTO(this.findProduct.findById(id));
+        return this.converter.toDTO(this.findProduct.findById(id).get());
     }
 
     public List<ProductDTO> findAll(){

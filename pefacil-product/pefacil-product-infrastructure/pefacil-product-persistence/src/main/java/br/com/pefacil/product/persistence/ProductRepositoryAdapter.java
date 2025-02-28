@@ -4,11 +4,14 @@ import br.com.pefacil.product.domain.exceptions.ProductAlreadyExistsException;
 import br.com.pefacil.product.domain.exceptions.ProductNotFoundException;
 import br.com.pefacil.product.domain.model.Product;
 import br.com.pefacil.product.domain.port.spi.ProductPort;
+import br.com.pefacil.product.persistence.exceptions.DatabaseErrorException;
 import br.com.pefacil.product.persistence.model.ProductEntity;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
+import org.springframework.dao.DataAccessException;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Component;
 
@@ -33,8 +36,12 @@ public class ProductRepositoryAdapter implements ProductPort {
     }
 
     @Override
-    public Product findById(Integer id) {
-        return productRepository.findById(id.longValue()).orElseThrow(() -> new ProductNotFoundException(id.longValue())).toDomain();
+    public Optional<Product> findById(Integer id) {
+        try {
+             return Optional.ofNullable(productRepository.findById(id.longValue()).orElseThrow(() -> new ProductNotFoundException(id.longValue())).toDomain());
+        } catch (DataAccessException e) {
+            throw new DatabaseErrorException(e.getMessage());
+        }
     }
 
     @Override
