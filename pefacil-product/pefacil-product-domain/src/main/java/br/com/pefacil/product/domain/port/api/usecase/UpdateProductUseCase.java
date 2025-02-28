@@ -14,6 +14,16 @@ public class UpdateProductUseCase implements UpdateProduct {
 
     @Override
     public Product update(Product product, Integer id) {
-        return this.port.update(product, id);
+        Product foundProduct = this.port.findById(id).get();
+        foundProduct = updateNewInformation(foundProduct, foundProduct);
+        return this.port.update(foundProduct, id);
+    }
+
+    private Product updateNewInformation(Product updateProduct, Product foundProduct) {
+        foundProduct.setName(updateProduct.getName());
+        foundProduct.setDescription(updateProduct.getDescription());
+        foundProduct.setPrice(updateProduct.getPrice());
+        foundProduct.setQuantityStoke(updateProduct.getQuantityStoke());
+        return foundProduct;
     }
 }
