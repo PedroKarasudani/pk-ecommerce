@@ -43,14 +43,8 @@ public class ProductRepositoryAdapter implements ProductPort {
     }
 
     @Override
-    public Product update(Product newProduct, Integer id) {
-        ProductEntity newProductEntity = productRepository.findById(id.longValue()).get();
-        newProductEntity.setName(newProduct.getName());
-        newProductEntity.setDescription(newProduct.getDescription());
-        newProductEntity.setPrice(newProduct.getPrice());
-        newProductEntity.setQuantityStoke(newProduct.getQuantityStoke());
-        newProductEntity = productRepository.save(newProductEntity);
-        return newProductEntity.toDomain();
+    public Product update(Product updateProduct, Integer id) {
+        return updateNewProductEntity(updateProduct, id).toDomain();
     }
 
     @Override
@@ -58,5 +52,12 @@ public class ProductRepositoryAdapter implements ProductPort {
         productRepository.deleteById(id.longValue());
     }
 
-
+    private ProductEntity updateNewProductEntity(Product updateProduct, Integer id) {
+        ProductEntity product = productRepository.findById(id.longValue()).get();
+        product.setName(updateProduct.getName());
+        product.setDescription(updateProduct.getDescription());
+        product.setPrice(updateProduct.getPrice());
+        product.setQuantityStoke(updateProduct.getQuantityStoke());
+        return product = productRepository.save(product);
+    }
 }
