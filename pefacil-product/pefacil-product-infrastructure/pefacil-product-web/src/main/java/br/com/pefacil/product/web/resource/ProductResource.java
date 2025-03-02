@@ -31,6 +31,11 @@ public class ProductResource {
         return ResponseEntity.ok().body(this.facade.findById(id));
     }
 
+    @GetMapping("/name/{name}")
+    public ResponseEntity<ProductDTO> findByName(@PathVariable String name) {
+        return ResponseEntity.ok().body(this.facade.findByName(name));
+    }
+
     @PutMapping("/{id}")
     ResponseEntity<ProductDTO> update(@PathVariable Integer id, @RequestBody ProductDTO productDTO){
         return ResponseEntity.ok().body(this.facade.update(productDTO, id));

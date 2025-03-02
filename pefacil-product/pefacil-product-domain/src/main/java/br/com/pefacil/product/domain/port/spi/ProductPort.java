@@ -11,6 +11,8 @@ public interface ProductPort {
 
     Optional<Product> findById(Integer id);
 
+    Optional<Product> findByName(String name);
+
     List<Product> findAll();
 
     Product update(Product product, Integer id);

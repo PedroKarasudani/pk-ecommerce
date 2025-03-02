@@ -22,6 +22,11 @@ public class FindProductUseCase implements FindProduct {
     }
 
     @Override
+    public Optional<Product> findByName(String name) {
+        return Optional.of(this.port.findByName(name).orElseThrow(() -> new ProductNotFoundException(name)));
+    }
+
+    @Override
     public List<Product> findAll() {
         return this.port.findAll();        
     }

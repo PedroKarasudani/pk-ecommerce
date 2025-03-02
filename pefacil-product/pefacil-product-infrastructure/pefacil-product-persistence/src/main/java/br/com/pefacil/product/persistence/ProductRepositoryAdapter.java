@@ -38,6 +38,11 @@ public class ProductRepositoryAdapter implements ProductPort {
     }
 
     @Override
+    public Optional<Product> findByName(String name) {
+        return productRepository.findByNameIgnoreCase(name).stream().map(ProductEntity::toDomain).findFirst();
+    }
+
+    @Override
     public List<Product> findAll() {
         return productRepository.findAll().stream().map(x -> x.toDomain()).collect(Collectors.toList());
     }
@@ -51,6 +56,5 @@ public class ProductRepositoryAdapter implements ProductPort {
     public void deleteById(Integer id) {
         productRepository.deleteById(id.longValue());
     }
-
 
 }

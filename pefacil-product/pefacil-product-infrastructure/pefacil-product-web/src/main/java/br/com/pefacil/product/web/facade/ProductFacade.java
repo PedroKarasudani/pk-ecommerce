@@ -38,6 +38,10 @@ public class ProductFacade {
         return this.converter.toDTO(this.findProduct.findById(id).get());
     }
 
+    public ProductDTO findByName(String name) {
+        return this.converter.toDTO(this.findProduct.findByName(name).get());
+    }
+
     public List<ProductDTO> findAll(){
         return this.converter.toDTO(this.findProduct.findAll());
     }

@@ -9,5 +9,7 @@ public interface FindProduct {
 
     Optional<Product> findById(Integer id);
 
+    Optional<Product> findByName(String name);
+
     List<Product> findAll();
 }
