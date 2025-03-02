@@ -44,7 +44,6 @@ public class ProductRepositoryAdapter implements ProductPort {
 
     @Override
     public Product update(Product updateProduct, Integer id) {
-        System.out.println(updateProduct.toString());
         return productRepository.save(ProductEntity.fromDomain(updateProduct, id)).toDomain();
     }
 
