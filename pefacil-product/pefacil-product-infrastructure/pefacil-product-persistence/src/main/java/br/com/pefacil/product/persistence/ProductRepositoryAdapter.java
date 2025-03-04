@@ -23,13 +23,7 @@ public class ProductRepositoryAdapter implements ProductPort {
 
     @Override
     public Product create(Product product) {
-        ProductEntity productEntity = ProductEntity.fromDomain(product);
-        try {
-            productEntity = productRepository.save(productEntity);
-        } catch (DataIntegrityViolationException e) {
-            throw new ProductAlreadyExistsException(product.getName());
-        }
-        return productEntity.toDomain();
+        return productRepository.save(ProductEntity.fromDomain(product)).toDomain();
     }
 
     @Override

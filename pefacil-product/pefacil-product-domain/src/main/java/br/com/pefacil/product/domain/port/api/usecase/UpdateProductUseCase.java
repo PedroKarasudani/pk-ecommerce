@@ -15,7 +15,7 @@ public class UpdateProductUseCase implements UpdateProduct {
     @Override
     public Product update(Product product, Integer id) {
         Product foundProduct = this.port.findById(id).get();
-        ValidateProduct.validate(product);
+        ValidateProduct.validate(product, this.port);
         Product foundProductToUpdate = updateNewInformation(product, foundProduct);
         return this.port.update(foundProductToUpdate, id);
     }
