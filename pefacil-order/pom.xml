@@ -23,6 +23,7 @@
     <modules>
         <module>pefacil-order-domain</module>
 		<module>pefacil-order-infrastructure</module>
+		<module>pefacil-order-domain</module>
 	</modules>
 
 	<scm>
