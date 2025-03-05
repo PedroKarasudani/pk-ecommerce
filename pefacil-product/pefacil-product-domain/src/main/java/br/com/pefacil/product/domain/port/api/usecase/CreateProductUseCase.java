@@ -1,14 +1,11 @@
 package br.com.pefacil.product.domain.port.api.usecase;
 
-import br.com.pefacil.product.domain.exceptions.ProductAlreadyExistsException;
 import br.com.pefacil.product.domain.model.Product;
 import br.com.pefacil.product.domain.port.api.CreateProduct;
 import br.com.pefacil.product.domain.port.spi.ProductPort;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
-import java.nio.channels.AlreadyBoundException;
-import java.util.Optional;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -18,12 +15,6 @@ public class CreateProductUseCase implements CreateProduct {
 
     @Override
     public Product create(Product product) {
-
-//        Product p = this.port.findByName(product.getName()).orElse(null);
-//        if(p != null && p.getName().equals(product.getName())) {
-//            throw new ProductAlreadyExistsException(product.getName());
-//        }
-
         ValidateProduct.validate(product, this.port);
         return this.port.create(product);
     }

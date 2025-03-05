@@ -39,9 +39,9 @@ public class GlobalExceptionHandler {
         return buildErrorResponse(e.getMessage(), HttpStatus.NOT_FOUND);
     }
 
-//    @ExceptionHandler(DatabaseErrorException.class)
-//    public ResponseEntity<ErrorResponse> handleDatabaseError(DatabaseErrorException e) {
-//        return buildErrorResponse(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
-//    }
+    @ExceptionHandler(Exception.class)
+    public ResponseEntity<ErrorResponse> handleDatabaseError(Exception e) {
+        return buildErrorResponse(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+    }
 
 }
