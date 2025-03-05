@@ -1,27 +1,12 @@
 package br.com.pefacil.product.persistence;
 
-import br.com.pefacil.product.domain.model.Product;
-import br.com.pefacil.product.domain.port.spi.ProductPort;
+import br.com.pefacil.product.persistence.model.ProductEntity;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-public class ProductRepository implements ProductPort {
+import java.util.Optional;
 
-    @Override
-    public Product create(Product product) {
-        return null;
-    }
-
-    @Override
-    public Product findById(Integer id) {
-        return null;
-    }
-
-    @Override
-    public Product update(Product product) {
-        return null;
-    }
-
-    @Override
-    public void deleteById(Integer id) {
-
-    }
+@Repository
+public interface ProductRepository extends JpaRepository<ProductEntity, Long> {
+    Optional<ProductEntity> findByNameIgnoreCase(String name);
 }

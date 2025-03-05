@@ -1,8 +1,15 @@
 package br.com.pefacil.product.domain.port.api;
 
+import java.util.List;
+import java.util.Optional;
+
 import br.com.pefacil.product.domain.model.Product;
 
 public interface FindProduct {
 
-    Product findById(Integer id);
+    Optional<Product> findById(Integer id);
+
+    Optional<Product> findByName(String name);
+
+    List<Product> findAll();
 }

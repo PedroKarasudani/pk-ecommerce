@@ -1,14 +1,21 @@
 package br.com.pefacil.product.domain.port.spi;
 
+import java.util.List;
+import java.util.Optional;
+
 import br.com.pefacil.product.domain.model.Product;
 
 public interface ProductPort {
 
     Product create(Product product);
 
-    Product findById(Integer id);
+    Optional<Product> findById(Integer id);
 
-    Product update(Product product);
+    Optional<Product> findByName(String name);
+
+    List<Product> findAll();
+
+    Product update(Product product, Integer id);
 
     void deleteById(Integer id);
 }

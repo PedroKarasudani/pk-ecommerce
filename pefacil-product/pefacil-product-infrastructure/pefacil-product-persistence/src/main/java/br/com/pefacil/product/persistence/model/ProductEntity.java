@@ -1,7 +1,9 @@
 package br.com.pefacil.product.persistence.model;
 
+import br.com.pefacil.product.domain.model.Product;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -9,7 +11,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "products")
+@Table(name = "tb_products")
+@Builder
 public class ProductEntity {
 
     @Id
@@ -19,6 +22,35 @@ public class ProductEntity {
     private String description;
     private Double quantityStoke;
     private Double price;
+
+    public static ProductEntity fromDomain(Product product) {
+        return ProductEntity.builder()
+                .name(product.getName())
+                .description(product.getDescription())
+                .quantityStoke(product.getQuantityStoke())
+                .price(product.getPrice())
+                .build();
+    }
+
+    public static ProductEntity fromDomain(Product product, Integer id) {
+        return ProductEntity.builder()
+                .id(id.longValue())
+                .name(product.getName())
+                .description(product.getDescription())
+                .quantityStoke(product.getQuantityStoke())
+                .price(product.getPrice())
+                .build();
+    }
+    
+    public Product toDomain () {
+        return Product.builder()
+                .id(this.getId())
+                .name(this.getName())
+                .description(this.getDescription())
+                .quantityStoke(this.getQuantityStoke())
+                .price(getPrice())
+                .build();
+    }
 
 }
 

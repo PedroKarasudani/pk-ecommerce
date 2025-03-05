@@ -22,6 +22,7 @@
         <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <pefacil-product-domain.version>0.0.1-SNAPSHOT</pefacil-product-domain.version>
+        <pefacil-product-persistence.version>0.0.1-SNAPSHOT</pefacil-product-persistence.version>
     </properties>
 
     <dependencyManagement>
@@ -30,6 +31,11 @@
                 <groupId>br.com.pefacil</groupId>
                 <artifactId>pefacil-product-domain</artifactId>
                 <version>${pefacil-product-domain.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>br.com.pefacil</groupId>
+                <artifactId>pefacil-product-persistence</artifactId>
+                <version>${pefacil-product-persistence.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
