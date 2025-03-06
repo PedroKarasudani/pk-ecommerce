@@ -1,4 +1,11 @@
 package br.com.pefacil.order.item.domain.port.api.usecase;
 
-public class DeleteOrderItemUseCase {
+import br.com.pefacil.order.item.domain.port.api.DeleteOrderItem;
+
+public class DeleteOrderItemUseCase implements DeleteOrderItem {
+
+    @Override
+    public void deleteById(Long id) {
+
+    }
 }

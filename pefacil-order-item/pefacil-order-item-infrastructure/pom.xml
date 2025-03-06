@@ -20,6 +20,23 @@
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <pefacil-order-item-domain.version>0.0.1-SNAPSHOT</pefacil-order-item-domain.version>
+        <pefacil-order-item-persistence.version>0.0.1-SNAPSHOT</pefacil-order-item-persistence.version>
     </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>br.com.pefacil</groupId>
+                <artifactId>pefacil-order-item-domain</artifactId>
+                <version>${pefacil-order-item-domain.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>br.com.pefacil</groupId>
+                <artifactId>pefacil-order-item-persistence</artifactId>
+                <version>${pefacil-order-item-persistence.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
 </project>
