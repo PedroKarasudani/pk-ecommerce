@@ -25,6 +25,11 @@
             <artifactId>pefacil-order-domain</artifactId>
         </dependency>
         <dependency>
+            <groupId>br.com.pefacil</groupId>
+            <artifactId>pecafil-order-persistence</artifactId>
+            <version>${pefacil-order-persistence.version}</version>
+        </dependency>
+        <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
             <version>${spring-boot-starter.version}</version>

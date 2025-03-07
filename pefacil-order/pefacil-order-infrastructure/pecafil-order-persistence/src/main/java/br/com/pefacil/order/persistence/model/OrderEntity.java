@@ -1,5 +1,6 @@
 package br.com.pefacil.order.persistence.model;
 
+import br.com.pefacil.order.domain.model.Order;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -30,4 +31,33 @@ public class OrderEntity {
     private Payment payment;
 
     private LocalDateTime orderDate;
+
+    public static OrderEntity fromDomain(Order order){
+        return OrderEntity.builder()
+                .user(order.getUser())
+                .orderItems(order.getOrderItems())
+                .orderDate(order.getOrderDate())
+                .payment(order.getPayment())
+                .build();
+    }
+
+    public static OrderEntity fromDomain(Order order, Long id){
+        return OrderEntity.builder()
+                .id(id)
+                .user(order.getUser())
+                .orderItems(order.getOrderItems())
+                .orderDate(order.getOrderDate())
+                .payment(order.getPayment())
+                .build();
+    }
+
+    public Order toDomain(){
+        return Order.builder()
+                .id(this.getId())
+                .user(this.getUser())
+                .orderItems(this.getOrderItems())
+                .orderDate(this.getOrderDate())
+                .payment(this.getPayment())
+                .build();
+    }
 }
