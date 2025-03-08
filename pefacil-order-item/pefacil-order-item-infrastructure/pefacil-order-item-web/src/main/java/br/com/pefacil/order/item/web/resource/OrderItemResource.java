@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.http.ResponseEntity;
 
 @RestController
-@RequestMapping( name = "/orderItem")
+@RequestMapping("/orderItem")
 public class OrderItemResource {
 
     private OrderItemFacade facade;

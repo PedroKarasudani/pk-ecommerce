@@ -4,6 +4,8 @@ import br.com.pefacil.order.item.domain.model.OrderItem;
 import br.com.pefacil.order.item.domain.port.spi.OrderItemPort;
 import org.springframework.stereotype.Component;
 
+import java.util.Optional;
+
 @Component
 public class OrderItemRepositoryAdapter implements OrderItemPort {
 
@@ -24,7 +26,7 @@ public class OrderItemRepositoryAdapter implements OrderItemPort {
     }
 
     @Override
-    public OrderItem findById(Long id) {
+    public Optional<OrderItem> findById(Long id) {
         return null;
     }
 

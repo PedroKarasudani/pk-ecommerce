@@ -2,7 +2,9 @@ package br.com.pefacil.order.item.domain.port.api;
 
 import br.com.pefacil.order.item.domain.model.OrderItem;
 
+import java.util.Optional;
+
 public interface FindOrderItem {
 
-    OrderItem findById(Long id);
+    Optional<OrderItem> findById(Long id);
 }
