@@ -1,5 +1,6 @@
 package br.com.pefacil.product.domain.port.api.usecase;
 
+import br.com.pefacil.product.domain.exceptions.ProductNotFoundException;
 import br.com.pefacil.product.domain.model.Product;
 import br.com.pefacil.product.domain.port.api.UpdateProduct;
 import br.com.pefacil.product.domain.port.spi.ProductPort;
@@ -14,7 +15,7 @@ public class UpdateProductUseCase implements UpdateProduct {
 
     @Override
     public Product update(Product product, Integer id) {
-        Product foundProduct = this.port.findById(id).get();
+        Product foundProduct = this.port.findById(id).orElseThrow(() -> new ProductNotFoundException(id.longValue()));
         ValidateProduct.validate(product, this.port);
         Product foundProductToUpdate = updateNewInformation(product, foundProduct);
         return this.port.update(foundProductToUpdate, id);
