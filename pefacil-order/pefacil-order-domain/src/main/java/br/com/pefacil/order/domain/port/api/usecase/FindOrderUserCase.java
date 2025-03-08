@@ -1,5 +1,6 @@
 package br.com.pefacil.order.domain.port.api.usecase;
 
+import br.com.pefacil.order.domain.exceptions.OrderNotFoundException;
 import br.com.pefacil.order.domain.model.Order;
 import br.com.pefacil.order.domain.port.api.FindOrder;
 import br.com.pefacil.order.domain.port.spi.OrderPort;
@@ -16,6 +17,6 @@ public class FindOrderUserCase implements FindOrder {
 
     @Override
     public Optional<Order> findById(Long id) {
-        return this.port.findById(id);
+        return Optional.of(this.port.findById(id).orElseThrow(() -> new OrderNotFoundException(id)));
     }
 }
