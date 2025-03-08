@@ -3,6 +3,7 @@ package br.com.pefacil.order.web.resource;
 import br.com.pefacil.order.domain.model.Order;
 import br.com.pefacil.order.web.facade.OrderFacade;
 import br.com.pefacil.order.web.model.OrderDTO;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/order")
 public class OrderResource {
 
+    @Autowired
     private OrderFacade facade;
 
     @PostMapping
