@@ -27,7 +27,7 @@ public class UpdateOrderItemUseCase implements UpdateOderItem {
         if (updateOrderItem.getProduct() != null) {
             foundOrderItem.setProduct(updateOrderItem.getProduct());
         }
-        if (updateOrderItem .getQuantity() >= 0) {
+        if (updateOrderItem.getQuantity() >= 0) {
             foundOrderItem.setQuantity(updateOrderItem.getQuantity());
         }
         if (updateOrderItem.getPriceAtPurchase() != null) {

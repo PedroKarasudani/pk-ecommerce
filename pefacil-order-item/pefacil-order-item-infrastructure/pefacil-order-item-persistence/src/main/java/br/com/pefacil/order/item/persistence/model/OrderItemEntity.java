@@ -1,5 +1,7 @@
 package br.com.pefacil.order.item.persistence.model;
 
+import br.com.pefacil.order.item.domain.model.OrderItem;
+import br.com.pefacil.order.item.persistence.OrderItemRepository;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -31,4 +33,34 @@ public class OrderItemEntity {
     private int quantity;
 
     private BigDecimal priceAtPurchase;
+
+    public static OrderItemEntity fromDomain(OrderItem orderItem) {
+        return OrderItemEntity.builder()
+                .id(orderItem.getId())
+                .order(orderItem.getOrder())
+                .product(orderItem.getProduct())
+                .quantity(orderItem.getQuantity())
+                .priceAtPurchase(orderItem.getPriceAtPurchase())
+                .build();
+    }
+
+    public static OrderItemEntity fromDomain(OrderItem orderItem, Long id) {
+        return OrderItemEntity.builder()
+                .id(id)
+                .order(orderItem.getOrder())
+                .product(orderItem.getProduct())
+                .quantity(orderItem.getQuantity())
+                .priceAtPurchase(orderItem.getPriceAtPurchase())
+                .build();
+    }
+
+    public OrderItem toDomain() {
+        return OrderItem.builder()
+                .id(this.getId())
+                .order(this.getOrder())
+                .product(this.getProduct())
+                .quantity(this.getQuantity())
+                .priceAtPurchase(this.getPriceAtPurchase())
+                .build();
+    }
 }
