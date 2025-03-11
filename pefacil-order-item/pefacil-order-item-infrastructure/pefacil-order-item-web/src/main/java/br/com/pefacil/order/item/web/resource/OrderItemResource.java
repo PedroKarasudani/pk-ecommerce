@@ -17,4 +17,20 @@ public class OrderItemResource {
     ResponseEntity<OrderItemDTO> create(@RequestBody OrderItemDTO orderDTO) {
         return ResponseEntity.ok().body(this.facade.create(orderDTO));
     }
+
+    @GetMapping("/{id}")
+    ResponseEntity<OrderItemDTO> findById(@PathVariable Long id){
+        return ResponseEntity.ok().body(this.facade.findById(id));
+    }
+
+    @PutMapping("/{id}")
+    ResponseEntity<OrderItemDTO> update(@RequestBody OrderItemDTO orderItemDTO, @PathVariable Long id) {
+        return ResponseEntity.ok().body(this.facade.update(orderItemDTO, id));
+    }
+
+    @DeleteMapping("/{id}")
+    ResponseEntity<Void> deleteById(@PathVariable Long id) {
+        this.facade.delete(id);
+        return ResponseEntity.noContent().build();
+    }
 }

@@ -3,7 +3,6 @@ package br.com.pefacil.order.item.persistence;
 import br.com.pefacil.order.item.domain.model.OrderItem;
 import br.com.pefacil.order.item.domain.port.spi.OrderItemPort;
 import br.com.pefacil.order.item.persistence.model.OrderItemEntity;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.Optional;
