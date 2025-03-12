@@ -17,8 +17,8 @@ public class FindProductUseCase implements FindProduct {
     private ProductPort port;
 
     @Override
-    public Optional<Product> findById(Integer id) {
-        return Optional.of(this.port.findById(id).orElseThrow(() -> new ProductNotFoundException(id.longValue())));
+    public Optional<Product> findById(Long id) {
+        return Optional.of(this.port.findById(id).orElseThrow(() -> new ProductNotFoundException(id)));
     }
 
     @Override

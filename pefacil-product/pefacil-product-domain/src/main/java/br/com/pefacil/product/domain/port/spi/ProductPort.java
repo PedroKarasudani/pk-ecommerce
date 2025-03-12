@@ -9,13 +9,13 @@ public interface ProductPort {
 
     Product create(Product product);
 
-    Optional<Product> findById(Integer id);
+    Optional<Product> findById(Long id);
 
     Optional<Product> findByName(String name);
 
     List<Product> findAll();
 
-    Product update(Product product, Integer id);
+    Product update(Product product, Long id);
 
-    void deleteById(Integer id);
+    void deleteById(Long id);
 }

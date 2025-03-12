@@ -27,7 +27,7 @@ public class ProductResource {
     }
 
     @GetMapping("/{id}")
-    ResponseEntity<ProductDTO> findById(@PathVariable Integer id) {
+    ResponseEntity<ProductDTO> findById(@PathVariable Long id) {
         return ResponseEntity.ok().body(this.facade.findById(id));
     }
 
@@ -37,12 +37,12 @@ public class ProductResource {
     }
 
     @PutMapping("/{id}")
-    ResponseEntity<ProductDTO> update(@PathVariable Integer id, @RequestBody ProductDTO productDTO){
+    ResponseEntity<ProductDTO> update(@PathVariable Long id, @RequestBody ProductDTO productDTO){
         return ResponseEntity.ok().body(this.facade.update(productDTO, id));
     }
 
     @DeleteMapping("/{id}")
-    ResponseEntity<Void> delete(@PathVariable Integer id) {
+    ResponseEntity<Void> delete(@PathVariable Long id) {
         this.facade.deleteById(id);
         return ResponseEntity.noContent().build();
     }

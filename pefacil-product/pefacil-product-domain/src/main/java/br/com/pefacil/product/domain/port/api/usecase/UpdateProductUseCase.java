@@ -14,8 +14,8 @@ public class UpdateProductUseCase implements UpdateProduct {
     private ProductPort port;
 
     @Override
-    public Product update(Product product, Integer id) {
-        Product foundProduct = this.port.findById(id).orElseThrow(() -> new ProductNotFoundException(id.longValue()));
+    public Product update(Product product, Long id) {
+        Product foundProduct = this.port.findById(id).orElseThrow(() -> new ProductNotFoundException(id));
         ValidateProduct.validate(product, this.port);
         Product foundProductToUpdate = updateNewInformation(product, foundProduct);
         return this.port.update(foundProductToUpdate, id);

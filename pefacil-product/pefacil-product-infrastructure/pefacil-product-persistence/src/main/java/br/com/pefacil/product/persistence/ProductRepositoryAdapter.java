@@ -27,8 +27,8 @@ public class ProductRepositoryAdapter implements ProductPort {
     }
 
     @Override
-    public Optional<Product> findById(Integer id) {
-        return productRepository.findById(id.longValue()).stream().map(ProductEntity::toDomain).findFirst();
+    public Optional<Product> findById(Long id) {
+        return productRepository.findById(id).stream().map(ProductEntity::toDomain).findFirst();
     }
 
     @Override
@@ -42,13 +42,13 @@ public class ProductRepositoryAdapter implements ProductPort {
     }
 
     @Override
-    public Product update(Product updateProduct, Integer id) {
+    public Product update(Product updateProduct, Long id) {
         return productRepository.save(ProductEntity.fromDomain(updateProduct, id)).toDomain();
     }
 
     @Override
-    public void deleteById(Integer id) {
-        productRepository.deleteById(id.longValue());
+    public void deleteById(Long id) {
+        productRepository.deleteById(id);
     }
 
 }

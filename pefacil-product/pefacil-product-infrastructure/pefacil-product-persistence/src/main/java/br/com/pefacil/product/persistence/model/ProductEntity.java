@@ -32,9 +32,9 @@ public class ProductEntity {
                 .build();
     }
 
-    public static ProductEntity fromDomain(Product product, Integer id) {
+    public static ProductEntity fromDomain(Product product, Long id) {
         return ProductEntity.builder()
-                .id(id.longValue())
+                .id(id)
                 .name(product.getName())
                 .description(product.getDescription())
                 .stockQuantity(product.getStockQuantity())

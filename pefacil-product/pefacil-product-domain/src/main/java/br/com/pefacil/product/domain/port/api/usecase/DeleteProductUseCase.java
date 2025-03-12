@@ -13,8 +13,8 @@ public class DeleteProductUseCase implements DeleteProduct {
     private ProductPort port;
 
     @Override
-    public void deleteById(Integer id) {
-        this.port.findById(id).orElseThrow(() -> new ProductNotFoundException(id.longValue()));
+    public void deleteById(Long id) {
+        this.port.findById(id).orElseThrow(() -> new ProductNotFoundException(id));
         this.port.deleteById(id);
     }
 }

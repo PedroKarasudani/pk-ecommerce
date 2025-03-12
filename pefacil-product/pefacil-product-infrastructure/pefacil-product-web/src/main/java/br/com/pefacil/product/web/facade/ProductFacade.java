@@ -34,7 +34,7 @@ public class ProductFacade {
         return this.converter.toDTO(this.createProduct.create(product));
     }
 
-    public ProductDTO findById(Integer id) {
+    public ProductDTO findById(Long id) {
         return this.converter.toDTO(this.findProduct.findById(id).get());
     }
 
@@ -46,12 +46,12 @@ public class ProductFacade {
         return this.converter.toDTO(this.findProduct.findAll());
     }
 
-    public ProductDTO update(ProductDTO productDTO, Integer id) {
+    public ProductDTO update(ProductDTO productDTO, Long id) {
         var product = converter.toDomain(productDTO);
         return this.converter.toDTO(this.updateProduct.update(product, id));
     }
 
-    public void deleteById(Integer id) {
+    public void deleteById(Long id) {
         this.deleteProduct.deleteById(id);
     }
 
