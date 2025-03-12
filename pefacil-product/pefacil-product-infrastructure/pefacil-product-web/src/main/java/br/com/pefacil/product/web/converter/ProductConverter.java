@@ -28,13 +28,7 @@ public class ProductConverter {
 
     public List<ProductDTO> toDTO(List<Product> productList) {
         return productList.stream()
-            .map(x -> ProductDTO.builder()
-                .id(x.getId())
-                .name(x.getName())
-                .description(x.getDescription())
-                .stockQuantity(x.getStockQuantity())
-                .price(x.getPrice())
-                .build())
+            .map(this::toDTO)
             .collect(Collectors.toList());
         }
 }
