@@ -16,8 +16,8 @@ public class ValidateProduct {
         if (product.getPrice() < 0 ) {
             throw new InvalidPriceException(product.getPrice());
         }
-        if (product.getQuantityStoke() < 0) {
-            throw new InvalidStockQuantityException(product.getQuantityStoke());
+        if (product.getStockQuantity() < 0) {
+            throw new InvalidStockQuantityException(product.getStockQuantity());
         }
 
         if(p != null && p.getName().equals(product.getName())) {

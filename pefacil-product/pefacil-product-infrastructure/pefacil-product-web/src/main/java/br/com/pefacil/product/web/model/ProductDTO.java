@@ -14,7 +14,7 @@ public class ProductDTO {
     private Long id;
     private String name;
     private String description;
-    private Double quantityStoke;
+    private Double stockQuantity;
     private Double price;
 
 }

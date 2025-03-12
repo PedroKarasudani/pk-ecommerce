@@ -20,14 +20,14 @@ public class ProductEntity {
     private Long id;
     private String name;
     private String description;
-    private Double quantityStoke;
+    private Double stockQuantity;
     private Double price;
 
     public static ProductEntity fromDomain(Product product) {
         return ProductEntity.builder()
                 .name(product.getName())
                 .description(product.getDescription())
-                .quantityStoke(product.getQuantityStoke())
+                .stockQuantity(product.getStockQuantity())
                 .price(product.getPrice())
                 .build();
     }
@@ -37,7 +37,7 @@ public class ProductEntity {
                 .id(id.longValue())
                 .name(product.getName())
                 .description(product.getDescription())
-                .quantityStoke(product.getQuantityStoke())
+                .stockQuantity(product.getStockQuantity())
                 .price(product.getPrice())
                 .build();
     }
@@ -47,7 +47,7 @@ public class ProductEntity {
                 .id(this.getId())
                 .name(this.getName())
                 .description(this.getDescription())
-                .quantityStoke(this.getQuantityStoke())
+                .stockQuantity(this.getStockQuantity())
                 .price(getPrice())
                 .build();
     }

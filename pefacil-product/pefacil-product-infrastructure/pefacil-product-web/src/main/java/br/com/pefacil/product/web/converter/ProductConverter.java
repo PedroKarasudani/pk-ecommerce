@@ -13,7 +13,7 @@ public class ProductConverter {
                 .id(productDTO.getId())
                 .name(productDTO.getName())
                 .description(productDTO.getDescription())
-                .quantityStoke(productDTO.getQuantityStoke())
+                .stockQuantity(productDTO.getStockQuantity())
                 .price(productDTO.getPrice()).build();
     }
 
@@ -22,7 +22,7 @@ public class ProductConverter {
                 .id(product.getId())
                 .name(product.getName())
                 .description(product.getDescription())
-                .quantityStoke(product.getQuantityStoke())
+                .stockQuantity(product.getStockQuantity())
                 .price(product.getPrice()).build();
     }
 
@@ -32,7 +32,7 @@ public class ProductConverter {
                 .id(x.getId())
                 .name(x.getName())
                 .description(x.getDescription())
-                .quantityStoke(x.getQuantityStoke())
+                .stockQuantity(x.getStockQuantity())
                 .price(x.getPrice())
                 .build())
             .collect(Collectors.toList());

@@ -31,8 +31,8 @@ public class UpdateProductUseCase implements UpdateProduct {
         if (updateProduct.getPrice() != null) {
             foundProduct.setPrice(updateProduct.getPrice());
         }
-        if (updateProduct.getQuantityStoke() != null) {
-            foundProduct.setQuantityStoke(updateProduct.getQuantityStoke());
+        if (updateProduct.getStockQuantity() != null) {
+            foundProduct.setStockQuantity(updateProduct.getStockQuantity());
         }
         return foundProduct;
     }
