@@ -26,8 +26,7 @@
         </dependency>
         <dependency>
             <groupId>br.com.pefacil</groupId>
-            <artifactId>pecafil-order-persistence</artifactId>
-            <version>${pefacil-order-persistence.version}</version>
+            <artifactId>pefacil-order-persistence</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>

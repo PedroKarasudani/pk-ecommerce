@@ -3,40 +3,42 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
+    <artifactId>pefacil-payment-infrastructure</artifactId>
+    <packaging>pom</packaging>
+
     <parent>
         <groupId>br.com.pefacil</groupId>
-        <artifactId>pefacil-order</artifactId>
+        <artifactId>pefacil-payment</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <artifactId>pefacil-order-infrastructure</artifactId>
-    <packaging>pom</packaging>
     <modules>
-        <module>pefacil-order-persistence</module>
-        <module>pefacil-order-web</module>
+        <module>pefacil-payment-persistence</module>
+        <module>pefacil-payment-web</module>
     </modules>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <pefacil-order-domain.version>0.0.1-SNAPSHOT</pefacil-order-domain.version>
-        <pefacil-order-persistence.version>0.0.1-SNAPSHOT</pefacil-order-persistence.version>
+        <pefacil-payment-domain.version>0.0.1-SNAPSHOT</pefacil-payment-domain.version>
+        <pefacil-payment-persistence.version>0.0.1-SNAPSHOT</pefacil-payment-persistence.version>
     </properties>
 
     <dependencyManagement>
         <dependencies>
             <dependency>
                 <groupId>br.com.pefacil</groupId>
-                <artifactId>pefacil-order-domain</artifactId>
-                <version>${pefacil-order-domain.version}</version>
+                <artifactId>pefacil-payment-domain</artifactId>
+                <version>${pefacil-payment-domain.version}</version>
             </dependency>
             <dependency>
                 <groupId>br.com.pefacil</groupId>
-                <artifactId>pefacil-order-persistence</artifactId>
-                <version>${pefacil-order-persistence.version}</version>
+                <artifactId>pefacil-payment-persistence</artifactId>
+                <version>${pefacil-payment-persistence.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
+
 
 </project>

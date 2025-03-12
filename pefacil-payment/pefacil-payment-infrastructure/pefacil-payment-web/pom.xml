@@ -5,35 +5,33 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>br.com.pefacil</groupId>
-        <artifactId>pefacil-order-item-infrastructure</artifactId>
+        <artifactId>pefacil-payment-infrastructure</artifactId>
         <version>0.0.1-SNAPSHOT</version>
+        <relativePath>../pom.xml</relativePath>
     </parent>
 
-    <artifactId>pefacil-order-item-persistence</artifactId>
+    <artifactId>pefacil-payment-web</artifactId>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <spring-boot-starter-data-jpa.version>3.4.2</spring-boot-starter-data-jpa.version>
-        <h2.version>2.3.232</h2.version>
+        <spring-boot-starter.version>3.4.2</spring-boot-starter.version>
     </properties>
 
     <dependencies>
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-jpa</artifactId>
-            <version>${spring-boot-starter-data-jpa.version}</version>
+            <groupId>br.com.pefacil</groupId>
+            <artifactId>pefacil-payment-domain</artifactId>
         </dependency>
         <dependency>
             <groupId>br.com.pefacil</groupId>
-            <artifactId>pefacil-order-item-domain</artifactId>
+            <artifactId>pefacil-payment-persistence</artifactId>
         </dependency>
         <dependency>
-            <groupId>com.h2database</groupId>
-            <artifactId>h2</artifactId>
-            <version>${h2.version}</version>
-            <scope>runtime</scope>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+            <version>${spring-boot-starter.version}</version>
         </dependency>
     </dependencies>
 

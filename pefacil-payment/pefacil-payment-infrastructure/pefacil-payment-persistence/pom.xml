@@ -5,11 +5,12 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>br.com.pefacil</groupId>
-        <artifactId>pefacil-order-item-infrastructure</artifactId>
+        <artifactId>pefacil-payment-infrastructure</artifactId>
         <version>0.0.1-SNAPSHOT</version>
+        <relativePath>../pom.xml</relativePath>
     </parent>
 
-    <artifactId>pefacil-order-item-persistence</artifactId>
+    <artifactId>pefacil-payment-persistence</artifactId>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
@@ -27,7 +28,7 @@
         </dependency>
         <dependency>
             <groupId>br.com.pefacil</groupId>
-            <artifactId>pefacil-order-item-domain</artifactId>
+            <artifactId>pefacil-payment-domain</artifactId>
         </dependency>
         <dependency>
             <groupId>com.h2database</groupId>
