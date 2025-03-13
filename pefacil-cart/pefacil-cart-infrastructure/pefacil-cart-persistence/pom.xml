@@ -5,15 +5,15 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>br.com.pefacil</groupId>
-        <artifactId>pefacil-order-item-infrastructure</artifactId>
+        <artifactId>pefacil-cart-infrastructure</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <artifactId>pefacil-order-item-persistence</artifactId>
+    <artifactId>pefacil-cart-persistence</artifactId>
 
     <properties>
-        <maven.compiler.source>17</maven.compiler.source>
-        <maven.compiler.target>17</maven.compiler.target>
+        <maven.compiler.source>21</maven.compiler.source>
+        <maven.compiler.target>21</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
@@ -24,7 +24,7 @@
         </dependency>
         <dependency>
             <groupId>br.com.pefacil</groupId>
-            <artifactId>pefacil-order-item-domain</artifactId>
+            <artifactId>pefacil-cart-domain</artifactId>
         </dependency>
         <dependency>
             <groupId>com.h2database</groupId>

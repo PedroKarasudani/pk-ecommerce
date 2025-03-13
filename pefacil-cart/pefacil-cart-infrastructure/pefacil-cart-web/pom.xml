@@ -5,31 +5,31 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>br.com.pefacil</groupId>
-        <artifactId>pefacil-order-item-infrastructure</artifactId>
+        <artifactId>pefacil-cart-infrastructure</artifactId>
         <version>0.0.1-SNAPSHOT</version>
+        <relativePath>../pom.xml</relativePath>
     </parent>
 
-    <artifactId>pefacil-order-item-persistence</artifactId>
+    <artifactId>pefacil-cart-web</artifactId>
 
     <properties>
-        <maven.compiler.source>17</maven.compiler.source>
-        <maven.compiler.target>17</maven.compiler.target>
+        <maven.compiler.source>21</maven.compiler.source>
+        <maven.compiler.target>21</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
     <dependencies>
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-jpa</artifactId>
+            <groupId>br.com.pefacil</groupId>
+            <artifactId>pefacil-cart-domain</artifactId>
         </dependency>
         <dependency>
             <groupId>br.com.pefacil</groupId>
-            <artifactId>pefacil-order-item-domain</artifactId>
+            <artifactId>pefacil-cart-persistence</artifactId>
         </dependency>
         <dependency>
-            <groupId>com.h2database</groupId>
-            <artifactId>h2</artifactId>
-            <scope>runtime</scope>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
     </dependencies>
 
