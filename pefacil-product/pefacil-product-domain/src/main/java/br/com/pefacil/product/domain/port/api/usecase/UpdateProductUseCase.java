@@ -22,18 +22,12 @@ public class UpdateProductUseCase implements UpdateProduct {
     }
 
     private Product updateNewInformation(Product updateProduct, Product foundProduct) {
-        if (updateProduct.getName() != null) {
-            foundProduct.setName(updateProduct.getName());
-        }
-        if (updateProduct.getDescription() != null) {
-            foundProduct.setDescription(updateProduct.getDescription());
-        }
-        if (updateProduct.getPrice() != null) {
-            foundProduct.setPrice(updateProduct.getPrice());
-        }
-        if (updateProduct.getStockQuantity() != null) {
-            foundProduct.setStockQuantity(updateProduct.getStockQuantity());
-        }
-        return foundProduct;
+        return new Product(
+                foundProduct.getId(),
+                updateProduct.getName() != null ? updateProduct.getName() : foundProduct.getName(),
+                updateProduct.getDescription() != null ? updateProduct.getDescription() : foundProduct.getDescription(),
+                updateProduct.getPrice() != null ? updateProduct.getPrice() : foundProduct.getPrice(),
+                updateProduct.getStockQuantity() != null ? updateProduct.getStockQuantity() : foundProduct.getStockQuantity()
+        );
     }
 }
