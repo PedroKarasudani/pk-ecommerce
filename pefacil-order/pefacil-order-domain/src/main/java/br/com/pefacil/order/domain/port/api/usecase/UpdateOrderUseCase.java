@@ -22,19 +22,13 @@ public class UpdateOrderUseCase implements UpdateOrder {
         return this.port.update(foundOrderToUpdate, id);
     }
 
-    private Order updateNewInformation(Order foundOrder, Order updateOrder){
-        if (updateOrder.getOrderDate() != null) {
-            foundOrder.setOrderDate(updateOrder.getOrderDate());
-        }
-        if (updateOrder.getOrderItems() != null) {
-            foundOrder.setOrderItems(updateOrder.getOrderItems());
-        }
-        if (updateOrder.getUser() != null) {
-            foundOrder.setUser(updateOrder.getUser());
-        }
-        if (updateOrder.getPayment() != null) {
-            foundOrder.setPayment(updateOrder.getPayment());
-        }
-        return foundOrder;
+    private Order updateNewInformation(Order foundOrder, Order updateOrder) {
+        return new Order(
+                foundOrder.getId(),
+                updateOrder.getUser() != null ? updateOrder.getUser() : foundOrder.getUser(),
+                updateOrder.getOrderItems() != null ? updateOrder.getOrderItems() : foundOrder.getOrderItems(),
+                updateOrder.getPayment() != null ? updateOrder.getPayment() : foundOrder.getPayment(),
+                updateOrder.getOrderDate() != null ? updateOrder.getOrderDate() : foundOrder.getOrderDate()
+        );
     }
 }

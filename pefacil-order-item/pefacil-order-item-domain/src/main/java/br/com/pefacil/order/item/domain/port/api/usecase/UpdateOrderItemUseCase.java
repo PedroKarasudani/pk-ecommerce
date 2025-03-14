@@ -21,18 +21,12 @@ public class UpdateOrderItemUseCase implements UpdateOderItem {
     }
 
     private OrderItem updateNewInformation(OrderItem foundOrderItem, OrderItem updateOrderItem){
-        if (updateOrderItem.getOrder()!= null) {
-            foundOrderItem.setOrder(updateOrderItem.getOrder());
-        }
-        if (updateOrderItem.getProduct() != null) {
-            foundOrderItem.setProduct(updateOrderItem.getProduct());
-        }
-        if (updateOrderItem.getQuantity() >= 0) {
-            foundOrderItem.setQuantity(updateOrderItem.getQuantity());
-        }
-        if (updateOrderItem.getPriceAtPurchase() != null) {
-            foundOrderItem.setPriceAtPurchase(updateOrderItem.getPriceAtPurchase());
-        }
-        return foundOrderItem;
+        return new OrderItem(
+                foundOrderItem.getId(),
+                updateOrderItem.getOrder()!= null ? updateOrderItem.getOrder() : foundOrderItem.getOrder(),
+                updateOrderItem.getProduct()!= null ? updateOrderItem.getProduct() : foundOrderItem.getProduct(),
+                updateOrderItem.getQuantity() >= 0 ? updateOrderItem.getQuantity() : foundOrderItem.getQuantity(),
+                updateOrderItem.getPriceAtPurchase()!= null ? updateOrderItem.getPriceAtPurchase() : foundOrderItem.getPriceAtPurchase()
+        );
     }
 }
