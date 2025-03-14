@@ -18,7 +18,7 @@ public class OrderItemRepositoryAdapter implements OrderItemPort {
 
     @Override
     public OrderItem created(OrderItem orderItem) {
-        return orderItemRepository.save(OrderItemEntity.fromDomain(orderItem)).toDomain();
+        return orderItemRepository.save(OrderItemEntity.fromDomain(orderItem, null)).toDomain();
     }
 
     @Override

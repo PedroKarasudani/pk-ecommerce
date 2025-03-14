@@ -18,7 +18,7 @@ public class OrderRespositoryAdapter implements OrderPort {
 
     @Override
     public Order create(Order order) {
-        return repository.save(OrderEntity.fromDomain(order)).toDomain();
+        return repository.save(OrderEntity.fromDomain(order, null)).toDomain();
     }
 
     @Override

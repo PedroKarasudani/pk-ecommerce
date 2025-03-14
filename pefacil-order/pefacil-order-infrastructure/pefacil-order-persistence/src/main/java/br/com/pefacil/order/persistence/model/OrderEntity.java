@@ -32,14 +32,6 @@ public class OrderEntity {
 
     private LocalDateTime orderDate;
 
-    public static OrderEntity fromDomain(Order order){
-        return OrderEntity.builder()
-                .user(order.getUser())
-                .orderItems(order.getOrderItems())
-                .orderDate(order.getOrderDate())
-                .payment(order.getPayment())
-                .build();
-    }
 
     public static OrderEntity fromDomain(Order order, Long id){
         return OrderEntity.builder()

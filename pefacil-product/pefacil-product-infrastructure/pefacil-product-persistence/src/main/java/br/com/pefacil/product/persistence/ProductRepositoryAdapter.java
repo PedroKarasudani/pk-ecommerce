@@ -23,7 +23,7 @@ public class ProductRepositoryAdapter implements ProductPort {
 
     @Override
     public Product create(Product product) {
-        return productRepository.save(ProductEntity.fromDomain(product)).toDomain();
+        return productRepository.save(ProductEntity.fromDomain(product, null)).toDomain();
     }
 
     @Override

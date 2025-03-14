@@ -23,15 +23,6 @@ public class ProductEntity {
     private Double stockQuantity;
     private Double price;
 
-    public static ProductEntity fromDomain(Product product) {
-        return ProductEntity.builder()
-                .name(product.getName())
-                .description(product.getDescription())
-                .stockQuantity(product.getStockQuantity())
-                .price(product.getPrice())
-                .build();
-    }
-
     public static ProductEntity fromDomain(Product product, Long id) {
         return ProductEntity.builder()
                 .id(id)

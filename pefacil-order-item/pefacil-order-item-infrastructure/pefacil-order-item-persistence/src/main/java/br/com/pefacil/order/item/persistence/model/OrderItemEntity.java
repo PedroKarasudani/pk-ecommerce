@@ -34,15 +34,6 @@ public class OrderItemEntity {
 
     private BigDecimal priceAtPurchase;
 
-    public static OrderItemEntity fromDomain(OrderItem orderItem) {
-        return OrderItemEntity.builder()
-                .id(orderItem.getId())
-                .order(orderItem.getOrder())
-                .product(orderItem.getProduct())
-                .quantity(orderItem.getQuantity())
-                .priceAtPurchase(orderItem.getPriceAtPurchase())
-                .build();
-    }
 
     public static OrderItemEntity fromDomain(OrderItem orderItem, Long id) {
         return OrderItemEntity.builder()
