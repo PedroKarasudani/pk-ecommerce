@@ -1,16 +1,17 @@
-package br.com.pefacil.user.domain.model;
+package br.com.pefacil.user.web.domain;
 
+import br.com.pefacil.user.domain.model.Address;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
 
-@Data
 @AllArgsConstructor
+@Data
 @Builder
-public class User {
+public class UserDTO {
 
     private Long id;
     private String name;
@@ -22,6 +23,5 @@ public class User {
     private LocalDate birthDate;
     private List<Order> orders;
     private Cart cart;
-
 
 }

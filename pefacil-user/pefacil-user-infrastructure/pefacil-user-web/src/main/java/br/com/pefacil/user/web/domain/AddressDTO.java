@@ -1,4 +1,4 @@
-package br.com.pefacil.user.domain.model;
+package br.com.pefacil.user.web.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -7,7 +7,7 @@ import lombok.Data;
 @AllArgsConstructor
 @Data
 @Builder
-public class Address {
+public class AddressDTO {
 
     private Long id;
     private String street;
@@ -16,5 +16,5 @@ public class Address {
     private String complement;
     private String cep;
     private String reference;
-    private User user;
+    private UserDTO user;
 }
