@@ -1,0 +1,7 @@
+server:
+  port: 8761  # O Eureka Server sempre rodará nesta porta
+
+eureka:
+  client:
+    register-with-eureka: false  # O próprio Eureka não precisa se registrar
+    fetch-registry: false  # Ele não busca serviços, apenas recebe registros

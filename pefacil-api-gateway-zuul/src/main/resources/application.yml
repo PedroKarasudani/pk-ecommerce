@@ -1,0 +1,42 @@
+server:
+  port: 8765  # O Gateway será acessado nesta porta
+
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: user-service
+          uri: lb://USER-SERVICE  # Chama automaticamente o serviço pelo Eureka
+          predicates:
+            - Path=/users/**
+        - id: order-service
+          uri: lb://ORDER-SERVICE
+          predicates:
+            - Path=/orders/**
+        - id: order-item-service
+          uri: lb://ORDER-ITEM-SERVICE
+          predicates:
+              - Path=/order-items/**
+        - id: product-service
+          uri: lb://PRODUCT-SERVICE
+          predicates:
+            - Path=/products/**
+        - id: cart-service
+          uri: lb://CART-SERVICE
+          predicates:
+            - Path=/cart/**
+        - id: payment-service
+          uri: lb://PAYMENT-SERVICE
+          predicates:
+            - Path=/payments/**
+      httpclient:
+        connect-timeout: 3000  # Tempo máximo para conectar ao serviço (3s)
+        response-timeout: 5s    # Tempo máximo para receber resposta (5s)
+
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    prefer-ip-address: true
