@@ -1,42 +1,48 @@
-server:
-  port: 8765  # O Gateway será acessado nesta porta
-
 spring:
-  cloud:
-    gateway:
-      routes:
-        - id: user-service
-          uri: lb://USER-SERVICE  # Chama automaticamente o serviço pelo Eureka
-          predicates:
-            - Path=/users/**
-        - id: order-service
-          uri: lb://ORDER-SERVICE
-          predicates:
-            - Path=/orders/**
-        - id: order-item-service
-          uri: lb://ORDER-ITEM-SERVICE
-          predicates:
-              - Path=/order-items/**
-        - id: product-service
-          uri: lb://PRODUCT-SERVICE
-          predicates:
-            - Path=/products/**
-        - id: cart-service
-          uri: lb://CART-SERVICE
-          predicates:
-            - Path=/cart/**
-        - id: payment-service
-          uri: lb://PAYMENT-SERVICE
-          predicates:
-            - Path=/payments/**
-      httpclient:
-        connect-timeout: 3000  # Tempo máximo para conectar ao serviço (3s)
-        response-timeout: 5s    # Tempo máximo para receber resposta (5s)
+  application:
+    name: pefacil-api-gateway-zuul
 
+server:
+  port: 8765
 
 eureka:
   client:
     service-url:
-      defaultZone: http://localhost:8761/eureka/
-  instance:
-    prefer-ip-address: true
+      defaultZone: http://hr-eureka-server:8761/eureka
+
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 60000
+
+ribbon:
+  ConnectTimeout: 10000
+  ReadTimeout: 20000
+
+zuul:
+  routes:
+    pefacil-user:
+      service-id: pefacil-user
+      path: /pefacil-user/**
+    pefacil-cart:
+      service-id: pefacil-cart
+      path: /pefacil-cart/**
+    pefacil-order:
+      service-id: pefacil-order
+      path: /pefacil-order/**
+    pefacil-order-item:
+      service-id: pefacil-order-item
+      path: /pefacil-order-item/**
+    pefacil-payment:
+      service-id: pefacil-payment
+      path: /pefacil-payment/**
+    pefacil-product:
+      service-id: pefacil-product
+      path: /pefacil-product/**
+    oauth:
+      service-id: hr-oauth
+      path: /hr-oauth/**
+      sensitive-headers: Cookie,Set-Cookie

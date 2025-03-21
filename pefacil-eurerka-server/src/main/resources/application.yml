@@ -1,7 +1,11 @@
+spring:
+  application:
+    name: pefacil-eureka-server
+
 server:
-  port: 8761  # O Eureka Server sempre rodará nesta porta
+  port: 8761
 
 eureka:
   client:
-    register-with-eureka: false  # O próprio Eureka não precisa se registrar
-    fetch-registry: false  # Ele não busca serviços, apenas recebe registros
+    register-with-eureka: false
+    fetch-registry: false
