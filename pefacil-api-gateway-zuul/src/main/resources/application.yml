@@ -1,43 +1,28 @@
-spring:
-  main:
-    web-application-type: reactive
-  application:
-    name: pefacil-api-gateway-zuul
-
 server:
   port: 8765
 
 eureka:
   client:
     service-url:
-      defaultZone: http://localhost:8761/eureka
+      defaultZone: http://localhost:8761/eureka/
+    fetch-registry: true
+    register-with-eureka: true
+
+spring:
+  main:
+    web-application-type: reactive
+  application:
+    name: pefacil-api-gateway-zuul
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
+      routes:
+        - id: pefacil-product
+          uri: lb://pefacil-product
+          predicates:
+            - Path=/pefacil-product/**
 
 
-ribbon:
-  ConnectTimeout: 10000
-  ReadTimeout: 20000
-
-zuul:
-  routes:
-    pefacil-user:
-      service-id: pefacil-user
-      path: /pefacil-user/**
-    pefacil-cart:
-      service-id: pefacil-cart
-      path: /pefacil-cart/**
-    pefacil-order:
-      service-id: pefacil-order
-      path: /pefacil-order/**
-    pefacil-order-item:
-      service-id: pefacil-order-item
-      path: /pefacil-order-item/**
-    pefacil-payment:
-      service-id: pefacil-payment
-      path: /pefacil-payment/**
-    pefacil-product:
-      service-id: pefacil-product
-      path: /pefacil-product/**
-    oauth:
-      service-id: hr-oauth
-      path: /hr-oauth/**
-      sensitive-headers: Cookie,Set-Cookie
